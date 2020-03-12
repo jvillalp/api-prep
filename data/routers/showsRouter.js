@@ -25,7 +25,7 @@ router.get("/:id", (req, res) => {
   const { id } = req.params;
   Shows.get(id)
     .then(show => {
-        res.status(200).json(show)
+      res.status(200).json(show);
     })
     .catch(err => {
       res.status(500).json({
@@ -35,6 +35,19 @@ router.get("/:id", (req, res) => {
 });
 
 //GET shows' characters ?/:id?
+router.get("/:id/characters", (req, res) => {
+    const { id} = req.params;
+
+  Shows.getShowsCharacters(id)
+    .then(characters => {
+        res.status(200).json(characters)
+    })
+    .catch(err => {
+      res.status(500).json({
+        errorMessage: `this is an error ${err}`
+      });
+    });
+});
 
 //POST
 router.post("/", (req, res) => {
