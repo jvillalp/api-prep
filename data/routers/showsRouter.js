@@ -2,10 +2,6 @@
 const router = require("express").Router();
 const Shows = require("../helpers/showsModel.js");
 
-const cors = require("cors");
-
-router.use(cors());
-
 //GET shows
 
 router.get("/", (req, res) => {
